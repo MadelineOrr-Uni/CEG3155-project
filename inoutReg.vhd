@@ -4,6 +4,7 @@ use ieee.std_logic_1164.all;
 entity inoutReg is
 	port (
 		a: inout std_logic_vector(7 downto 0);
+		q: out std_logic_vector(7 downto 0);
 		rw, clk, en: in std_logic
 	);
 end entity;
@@ -36,4 +37,5 @@ begin
 	intSel <= rw and en;
 	a <= intQ when rw = '0' and en = '1' else
 		a;
+	q <= intQ;
 end architecture;

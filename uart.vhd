@@ -12,8 +12,8 @@ entity uart is
 end entity;
 
 architecture uartArch of uart is
-	signal intDataOut, intTdr, intScsr, intSccr: std_logic_vector(7 downto 0);
-	signal 
+	signal intDataOut, intTdr, intRsr, intRdr, intScsr, intSccr: std_logic_vector(7 downto 0);
+	signal intTransmit, intReceive, intTsr_shift, intRsr_shift: std_logic;
 
 	component mux4x8
 		port (
@@ -77,13 +77,11 @@ begin
 	port map (
 		in0 => intRdr,
 		in1 => data,
-		in2 => intSccr,
-		in3 => intSccr,
+		in2 => data,
+		in3 => data,
 		s => addSel(1 downto 0),
 		q => intDataOut
 	);
-
-
 
 	data <= data when addSel(2) = '0' else
 		intDataOut;
@@ -93,8 +91,8 @@ begin
 		clk => clk,
 		a_shift => ,
 		sel => ,
-		a => ,
-		q => ,
+		a => intRsr,
+		q => intRdr,
 		q_shift 
 	);
 
@@ -103,12 +101,11 @@ begin
 		clk => clk,
 		a_shift => ,
 		sel => ,
-		a => ,
-		q => ,
-		q_shift 
+		a => data,
+		q_shift => intTdr_shift
 	);
 
-	RSR: shicftReg8Bit
+	RSR: shiftReg8Bit
 	port map (	
 		clk => clk,
 		a_shift => ,
@@ -123,7 +120,7 @@ begin
 		clk => clk,
 		a_shift => ,
 		sel => ,
-		a => ,
+		a => intTdr,
 		q => ,
 		q_shift 
 	);
@@ -141,16 +138,16 @@ begin
 	SCCR: inoutReg
 	port map (
 		clk => clk,
-		rw => ,
-		en => ,
-		a => 
+		rw => addSel(2),
+		en => addSel(1),
+		a => data
 	);
 
 	transCtrl: transmitterController
 	port map (	
 		clk => clk,
 		reset => gReset,
-		call => ,
+		call => intTransmit,
 		tdre => ,
 		state => 
 	);
@@ -168,8 +165,8 @@ begin
 	port map (
 		clk => clk,
 		reset => gReset,
-		call => ,
-		rxd => ,
+		call => intReceive,
+		rxd => rxd,
 		rdrf => ,
 		oe => ,
 		state => 
