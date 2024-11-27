@@ -52,8 +52,11 @@ begin
 		in1 => intScsr,
 		in2 => intSccr,
 		in3 => intSccr,
-		q => dataOut
-	)
+		s => addSel(1 downto 0),
+		q => intDataOut
+	);
+
+	
 
 	data <= data when addSel(2) = '0' else
 		intDataOut;
