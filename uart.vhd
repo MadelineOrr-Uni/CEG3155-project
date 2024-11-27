@@ -21,14 +21,6 @@ architecture uartArch of uart is
 		);
 	end component;
 
-	component addrDecoder is 
-	    port (
-	        ADDR: in std_logic_vector(1 downto 0);
-	        RW: in std_logic;
-	        action: out std_logic_vector(3 downto 0)
-	    );
-	end component;
-
 	component shiftReg8Bit
 		port (
 			clk, a_shift: in std_logic;
@@ -46,8 +38,16 @@ architecture uartArch of uart is
 		);
 	end component;
 
-	component transmitterControl
+	component addrDecoder
 		port (
+			ADDR: in std_logic_vector(1 downto 0);
+			RW: in std_logic;
+			action: out std_logic_vector(3 downto 0)
+		);
+	end component;
+
+	component transmitterController
+		port (	
 			clk, reset, call: in std_logic;
 			tdre: out std_logic;
 			state: out std_logic_vector(1 downto 0)
@@ -59,6 +59,14 @@ architecture uartArch of uart is
 			clk, rxd, call, reset: in std_logic;
 			rdrf, oe, fe: out std_logic;
 			state: out std_logic_vector(1 downto 0) 
+		);
+	end component;
+
+	component baudRateGen
+		port (		
+			clk, reset: in std_logic;
+			s: in std_logic_vector(2 downto 0);
+			q, qx8: out std_logic
 		);
 	end component;
 begin
@@ -76,4 +84,36 @@ begin
 
 	data <= data when addSel(2) = '0' else
 		intDataOut;
+
+	RDR: shiftReg8Bit
+	port map (
+			
+	);
+
+	TDR: shiftReg8Bit
+	port map (
+		
+	);
+
+	RSR: shiftReg8Bit
+	port map (
+		
+	);
+
+	TSR: shiftReg8Bit
+	port map (
+		
+	);
+
+	SCSR: shiftReg8Bit
+	port map (
+		
+	);
+
+	SCCR: inoutReg
+	port map (
+		
+	);
+
+
 end architecture;
