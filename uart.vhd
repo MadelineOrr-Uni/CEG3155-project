@@ -13,10 +13,12 @@ end entity;
 
 architecture uartArch of uart is
 	signal intDataOut, intTdr, intRsr, intRdr, intScsr, intSccr: std_logic_vector(7 downto 0);
-	signal intTransmit, intReceive, intTsr_shift, intRsr_shift, baudClkx8, baudClk: std_logic;
+	signal intTransmit, intReceive, intTsr_shift, intRsr_shift, baudClkx8, baudClk, rcvrCtrlClkOut: std_logic;
 	signal gnd: std_logic_vector(7 downto 0) := "00000000";
 	signal pow: std_logic_vector(7 downto 0) := "11111111";
 	signal action: std_logic_vector(3 downto 0);
+	signal transState, rcvrState: std_logic_vector(1 downto 0);
+
 	component mux4x8
 		port (
 			in0, in1, in2, in3: in std_logic_vector(7 downto 0);
@@ -88,57 +90,55 @@ begin
 
 	RDR: shiftReg8Bit
 	port map (
-		clk => clk,
+		clk => rcvrCtrlClkOut,
 		a_shift => gnd(0),
 		sel => ,
 		a => intRsr,
 		q => intRdr,
-		q_shift 
 	);
 
 	TDR: shiftReg8Bit
 	port map (
-		clk => clk,
+		clk => baudClk,
 		a_shift => gnd(0),
 		sel(1) => '0',
 		sel(0) => action(0),
 		a => data,
-		q_shift => intTdr_shift
+		q => intTdr,
 	);
 
 	RSR: shiftReg8Bit
 	port map (	
-		clk => clk,
+		clk => baudClkx8,
 		a_shift => rxd,
-		sel => ,
-		a => ,
-		q => ,
-		q_shift 
+		sel(0) => '0'
+		sel(1) => ,
+		a => gnd,
+		q => intRsr,
 	);
 
 	TSR: shiftReg8Bit
 	port map (
-		clk => clk,
+		clk => baudClk,
 		a_shift => '1',
-		sel => ,
+		sel(0) => '1'
+		sel(1) => ,
 		a => intTdr,
-		q => ,
 		q_shift => txd
 	);
 
 	SCSR: shiftReg8Bit
 	port map (
-		clk => clk,
-		a_shift => ,
+		clk => baudClk,
+		a_shift => gnd(0),
 		sel => ,
 		a => ,
 		q => ,
-		q_shift 
 	);
 
 	SCCR: inoutReg
 	port map (
-		clk => clk,
+		clk => baudClk,
 		rw => addSel(2),
 		en => addSel(1),
 		q => intSccr,
@@ -154,11 +154,11 @@ begin
 
 	transCtrl: transmitterController
 	port map (	
-		clk => clk,
+		clk => baudClk,
 		reset => gReset,
 		call => intTransmit,
 		tdre => intScsr(7),
-		state => 
+		state => transState
 	);
 
 	baudRate: baudRateGen
@@ -179,7 +179,7 @@ begin
 		rdrf => intScsr(6),
 		oe => intScsr(1),
 		fe => intScsr(0),
-		state => 
+		state => rcvrState
 	);
 
 	data <= data when addSel(2) = '0' else 
