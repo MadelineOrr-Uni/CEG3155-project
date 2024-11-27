@@ -13,7 +13,7 @@ end entity;
 
 architecture uartArch of uart is
 	signal intDataOut, intTdr, intRsr, intRdr, intScsr, intSccr: std_logic_vector(7 downto 0);
-	signal intTransmit, intReceive, intTsr_shift, intRsr_shift, baudClkx8, baudClk, rcvrCtrlClkOut: std_logic;
+	signal intTransmit, intReceive, intTsr_shift, intRsr_shift, baudClkx8, baudClk, rcvrCtrlClkOut, rcvrRead: std_logic;
 	signal gnd: std_logic_vector(7 downto 0) := "00000000";
 	signal pow: std_logic_vector(7 downto 0) := "11111111";
 	signal action: std_logic_vector(3 downto 0);
@@ -88,11 +88,18 @@ begin
 		q => intDataOut
 	);
 
+	rcvrChange: myDff
+	port map (
+		clk => rcvrCtrlClkOut,
+		d => not(reset) and rcvrState(1) and rcvrState(0),
+		q => rcvrRead
+	);
+
 	RDR: shiftReg8Bit
 	port map (
 		clk => rcvrCtrlClkOut,
 		a_shift => gnd(0),
-		sel => ,
+		sel(0) => ,
 		a => intRsr,
 		q => intRdr,
 	);
@@ -112,7 +119,7 @@ begin
 		clk => baudClkx8,
 		a_shift => rxd,
 		sel(0) => '0'
-		sel(1) => ,
+		sel(1) => rcvrRead and not(rcvrState(0)),
 		a => gnd,
 		q => intRsr,
 	);
