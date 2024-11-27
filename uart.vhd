@@ -13,6 +13,7 @@ end entity;
 
 architecture uartArch of uart is
 	signal intDataOut: std_logic_vector(7 downto 0);
+	signal action: std_logic_vector(3 downto 0);
 
 	component mux4x8
 		port (
@@ -73,9 +74,6 @@ architecture uartArch of uart is
 
 begin
 
-	data <= data when addSel(2) = '0' else
-		intDataOut;
-
 	RDR: shiftReg8Bit
 	port map (
 		clk => clk,
@@ -129,9 +127,16 @@ begin
 	SCCR: inoutReg
 	port map (
 		clk => clk,
-		rw => ,
-		en => ,
+		rw => addSel(2),
+		en => addSel(1),
 		a => 
+	);
+
+	addrDecoder: addrDecoder
+	port map (
+		ADDR => addSel(1 downto 0),
+		RW => addSel(2),
+		action => 
 	);
 
 	transCtrl: transmitterController
@@ -162,4 +167,8 @@ begin
 		oe => ,
 		state => 
 	);
+
+	data <= data when addSel(2) = '0' else 
+		intDataOut;
+
 end architecture;
