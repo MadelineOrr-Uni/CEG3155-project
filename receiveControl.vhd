@@ -38,6 +38,13 @@ architecture receiverControlArch of receiverControl is
 		);
 	end component;
 
+	component fallDetect is
+		port (
+			clk, a, reset: in std_logic;
+			q: out std_logic
+		);
+	end entity;
+
 	component shiftReg8Bit
 		port (
 			clk, a_shift: in std_logic;
@@ -74,19 +81,7 @@ begin
 		q => intClk
 	);
 
-	fallDetect0: myDff
-	port map (
-		clk => clk,
-		d => intFallDetectIn,
-		q => intFall(0)
-	);
-
-	fallDetect1: myDff
-	port map (
-		clk => clk,
-		d => intFall(0),
-		q => intFall(1)
-	);
+	fallCheck: fallDetect
 
 	parity: parityCheck
 	port map (

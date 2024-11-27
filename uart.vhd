@@ -14,6 +14,8 @@ end entity;
 architecture uartArch of uart is
 	signal intDataOut, intTdr, intRsr, intRdr, intScsr, intSccr: std_logic_vector(7 downto 0);
 	signal intTransmit, intReceive, intTsr_shift, intRsr_shift: std_logic;
+	signal gnd: std_logic_vector(7 downto 0) := "00000000";
+	signal pow: std_logic_vector(7 downto 0) := "11111111";
 
 	component mux4x8
 		port (
@@ -89,7 +91,7 @@ begin
 	RDR: shiftReg8Bit
 	port map (
 		clk => clk,
-		a_shift => ,
+		a_shift => gnd(0),
 		sel => ,
 		a => intRsr,
 		q => intRdr,
@@ -99,8 +101,9 @@ begin
 	TDR: shiftReg8Bit
 	port map (
 		clk => clk,
-		a_shift => ,
-		sel => ,
+		a_shift => gnd(0),
+		sel(0) => action(0),
+		sel(1) => action(1),
 		a => data,
 		q_shift => intTdr_shift
 	);
@@ -118,7 +121,7 @@ begin
 	TSR: shiftReg8Bit
 	port map (
 		clk => clk,
-		a_shift => ,
+		a_shift => pow(0),
 		sel => ,
 		a => intTdr,
 		q => ,
