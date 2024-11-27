@@ -1,0 +1,634 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/squid/Downloads/Lab3
+Eaddrdecoder
+Z0 w1732744177
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z3 dC:/Users/squid/Downloads/ProjectVhdl
+Z4 8C:/Users/squid/Downloads/ProjectVhdl/work/addrDecoder.vhdl
+Z5 FC:/Users/squid/Downloads/ProjectVhdl/work/addrDecoder.vhdl
+l0
+L4
+VER^Q8i1N6>aY4?A:0lFh?1
+!s100 mz:hFan1iKTFiME4HLY[R3
+Z6 OV;C;10.5b;63
+32
+Z7 !s110 1732744182
+!i10b 1
+Z8 !s108 1732744182.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/addrDecoder.vhdl|
+Z10 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/addrDecoder.vhdl|
+!i113 1
+Z11 o-work work -2002 -explicit
+Z12 tExplicit 1 CvgOpt 0
+Astruct
+R1
+R2
+DEx4 work 11 addrdecoder 0 22 ER^Q8i1N6>aY4?A:0lFh?1
+l13
+L12
+V^7QW]JFOfiTIQ_<452]hD0
+!s100 4AnTGjBR0Y@z92DPddL3i2
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Ebaudrategen
+Z13 w1732741733
+R1
+R2
+R3
+Z14 8C:/Users/squid/Downloads/ProjectVhdl/work/baudRateGen.vhd
+Z15 FC:/Users/squid/Downloads/ProjectVhdl/work/baudRateGen.vhd
+l0
+L4
+Vg;RzLE:N`EX1ABJ:lJie93
+!s100 `?MojzCZ?5HOH?zeENz>m2
+R6
+32
+Z16 !s110 1732741744
+!i10b 1
+Z17 !s108 1732741744.000000
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/baudRateGen.vhd|
+Z19 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/baudRateGen.vhd|
+!i113 1
+R11
+R12
+Abaudrategenarch
+R1
+R2
+DEx4 work 11 baudrategen 0 22 g;RzLE:N`EX1ABJ:lJie93
+l39
+L12
+Vg5O@cQ?nz_kLB5kN>XOX`0
+!s100 miWo8]8c7;QQJ45BI7?]d3
+R6
+32
+R16
+!i10b 1
+R17
+R18
+R19
+!i113 1
+R11
+R12
+Ecounter1bit
+Z20 w1732733396
+R1
+R2
+R3
+Z21 8C:/Users/squid/Downloads/ProjectVhdl/work/counter1Bit.vhd
+Z22 FC:/Users/squid/Downloads/ProjectVhdl/work/counter1Bit.vhd
+l0
+L4
+VJB6lD7VdOHKS;b<z>;DE@0
+!s100 PI@B:bGL:`oYDBlD93QDd1
+R6
+32
+Z23 !s110 1732741203
+!i10b 1
+Z24 !s108 1732741203.000000
+Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/counter1Bit.vhd|
+Z26 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/counter1Bit.vhd|
+!i113 1
+R11
+R12
+Acounter1bitarch
+R1
+R2
+DEx4 work 11 counter1bit 0 22 JB6lD7VdOHKS;b<z>;DE@0
+l27
+L11
+V=89S?[4gIQ<e5o@FVSYB61
+!s100 :]k?fan4l=bTE781TmQlT0
+R6
+32
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 1
+R11
+R12
+Ecounter8bit
+Z27 w1732741308
+R1
+R2
+R3
+Z28 8C:/Users/squid/Downloads/ProjectVhdl/work/counter8Bit.vhd
+Z29 FC:/Users/squid/Downloads/ProjectVhdl/work/counter8Bit.vhd
+l0
+L4
+Vmal7Uj[k;82JaPC5el6082
+!s100 zb765clio@8nU12UA1g8I1
+R6
+32
+Z30 !s110 1732741316
+!i10b 1
+Z31 !s108 1732741316.000000
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/counter8Bit.vhd|
+Z33 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/counter8Bit.vhd|
+!i113 1
+R11
+R12
+Acounter8bitarch
+R1
+R2
+DEx4 work 11 counter8bit 0 22 mal7Uj[k;82JaPC5el6082
+l23
+L12
+V[5Z`TNnNEk>Wo=6cb<z9g1
+!s100 Pfzg?^c0>g_kok[T_EmFN0
+R6
+32
+R30
+!i10b 1
+R31
+R32
+R33
+!i113 1
+R11
+R12
+Ediv41
+Z34 w1732741457
+R1
+R2
+R3
+Z35 8C:\Users\squid\Downloads\ProjectVhdl\work\div41.vhd
+Z36 FC:\Users\squid\Downloads\ProjectVhdl\work\div41.vhd
+l0
+L4
+V01c=IAB`@bDkZfilf_zWS0
+!s100 2AOemX`H9[XDG;Q;IbAD51
+R6
+32
+Z37 !s110 1732741525
+!i10b 1
+Z38 !s108 1732741525.000000
+Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\squid\Downloads\ProjectVhdl\work\div41.vhd|
+Z40 !s107 C:\Users\squid\Downloads\ProjectVhdl\work\div41.vhd|
+!i113 1
+R11
+R12
+Adiv41arch
+R1
+R2
+DEx4 work 5 div41 0 22 01c=IAB`@bDkZfilf_zWS0
+l23
+L11
+VAaHD>b]O<e8VSiK]hiVmF0
+!s100 JTeMm0ozlzf?eYA=WDELO0
+R6
+32
+R37
+!i10b 1
+R38
+R39
+R40
+!i113 1
+R11
+R12
+Einoutreg
+Z41 w1732743814
+R1
+R2
+R3
+Z42 8C:/Users/squid/Downloads/ProjectVhdl/work/inoutReg.vhd
+Z43 FC:/Users/squid/Downloads/ProjectVhdl/work/inoutReg.vhd
+l0
+L4
+VIJ3N[XfX3_TBM;?Fn6Th[0
+!s100 7eK[<VUKL?gdOWf9VL`Z<2
+R6
+32
+Z44 !s110 1732743884
+!i10b 1
+Z45 !s108 1732743883.000000
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/inoutReg.vhd|
+Z47 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/inoutReg.vhd|
+!i113 1
+R11
+R12
+Ainoutregarch
+R1
+R2
+DEx4 work 8 inoutreg 0 22 IJ3N[XfX3_TBM;?Fn6Th[0
+l25
+L11
+V_CnPUO`5L6_V>ik>IbgU=2
+!s100 `S=`D=H0PhHCngW4VCYVh0
+R6
+32
+R44
+!i10b 1
+R45
+R46
+R47
+!i113 1
+R11
+R12
+Emux2x1
+Z48 w1732732796
+R1
+R2
+R3
+Z49 8C:/Users/squid/Downloads/ProjectVhdl/work/mux2x1.vhd
+Z50 FC:/Users/squid/Downloads/ProjectVhdl/work/mux2x1.vhd
+l0
+L4
+V5e]OPHNiNUJ9TC8jn`OQ90
+!s100 0IfjN85Nef5SIcBRRWAZX3
+R6
+32
+R23
+!i10b 1
+R24
+Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/mux2x1.vhd|
+Z52 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/mux2x1.vhd|
+!i113 1
+R11
+R12
+Amux2x1arch
+R1
+R2
+DEx4 work 6 mux2x1 0 22 5e]OPHNiNUJ9TC8jn`OQ90
+l12
+L11
+VTHOkAd`QE9YKn5kmMch8h3
+!s100 `bGhX<OBWHlFZIgF<m;hT3
+R6
+32
+R23
+!i10b 1
+R24
+R51
+R52
+!i113 1
+R11
+R12
+Emux4x1
+Z53 w1730927694
+R1
+R2
+R3
+Z54 8C:/Users/squid/Downloads/ProjectVhdl/work/mux4x1.vhd
+Z55 FC:/Users/squid/Downloads/ProjectVhdl/work/mux4x1.vhd
+l0
+L4
+VlPQ]QDd@i_`@Jj4hod0Nc2
+!s100 _kXFW8JNW`Toao;GJz=Ai1
+R6
+32
+R23
+!i10b 1
+R24
+Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/mux4x1.vhd|
+Z57 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/mux4x1.vhd|
+!i113 1
+R11
+R12
+Amux4x1arch
+R1
+R2
+DEx4 work 6 mux4x1 0 22 lPQ]QDd@i_`@Jj4hod0Nc2
+l13
+L12
+Vo7MUWcVW74PXGzzG?NnkY1
+!s100 zFAS[oh2UdI]^>cgzI>Eh3
+R6
+32
+R23
+!i10b 1
+R24
+R56
+R57
+!i113 1
+R11
+R12
+Emux8x1
+Z58 w1732734470
+R1
+R2
+R3
+Z59 8C:/Users/squid/Downloads/ProjectVhdl/work/mux8x1.vhd
+Z60 FC:/Users/squid/Downloads/ProjectVhdl/work/mux8x1.vhd
+l0
+L4
+VJX_6kR`Dd>n?iloLnDEYa3
+!s100 eh_a@1hcj41]fdXSiB;Wl2
+R6
+32
+Z61 !s110 1732741204
+!i10b 1
+Z62 !s108 1732741204.000000
+Z63 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/mux8x1.vhd|
+Z64 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/mux8x1.vhd|
+!i113 1
+R11
+R12
+Amux8x1arch
+R1
+R2
+DEx4 work 6 mux8x1 0 22 JX_6kR`Dd>n?iloLnDEYa3
+l13
+L12
+VgDMbCMzk]hbeKok[jaXPM1
+!s100 Se1[42HoWlT1g=F=FnFWn1
+R6
+32
+R61
+!i10b 1
+R62
+R63
+R64
+!i113 1
+R11
+R12
+Emydff
+Z65 w1730327509
+R1
+R2
+R3
+Z66 8C:/Users/squid/Downloads/ProjectVhdl/work/myDff.vhd
+Z67 FC:/Users/squid/Downloads/ProjectVhdl/work/myDff.vhd
+l0
+L4
+VY?Y;?AHo^CIGcmDW=E`gf2
+!s100 QH@UUW37S?O:YOR1UUk5S0
+R6
+32
+R61
+!i10b 1
+R62
+Z68 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/myDff.vhd|
+Z69 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/myDff.vhd|
+!i113 1
+R11
+R12
+Amydffarch
+R1
+R2
+DEx4 work 5 mydff 0 22 Y?Y;?AHo^CIGcmDW=E`gf2
+l20
+L11
+Vc^VzKNY;1G;><5E:oFAYB3
+!s100 RX;NmY6blKhh?L1gPjf`W3
+R6
+32
+R61
+!i10b 1
+R62
+R68
+R69
+!i113 1
+R11
+R12
+Eparitycheck
+Z70 w1732742076
+R1
+R2
+R3
+Z71 8C:/Users/squid/Downloads/ProjectVhdl/work/parityCheck.vhd
+Z72 FC:/Users/squid/Downloads/ProjectVhdl/work/parityCheck.vhd
+l0
+L4
+VlH]@4C4AF6F<1?fCzfocj3
+!s100 ljm5JS[8ES1kNiB^B6<MF2
+R6
+32
+Z73 !s110 1732742080
+!i10b 1
+Z74 !s108 1732742080.000000
+Z75 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/parityCheck.vhd|
+Z76 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/parityCheck.vhd|
+!i113 1
+R11
+R12
+Aparitycheckarch
+R1
+R2
+DEx4 work 11 paritycheck 0 22 lH]@4C4AF6F<1?fCzfocj3
+l20
+L11
+VREeLGO5d:?R4HjkFVMTU@1
+!s100 3E:Yd5_UDLf9ACC_d9_^k1
+R6
+32
+R73
+!i10b 1
+R74
+R75
+R76
+!i113 1
+R11
+R12
+Ereceivercontrol
+Z77 w1732742395
+R1
+R2
+R3
+Z78 8C:/Users/squid/Downloads/ProjectVhdl/work/receiveControl.vhd
+Z79 FC:/Users/squid/Downloads/ProjectVhdl/work/receiveControl.vhd
+l0
+L4
+VAXgEnifDb[@mVlmTY9gki0
+!s100 6MCI92S8V`LiPYUSU9GL60
+R6
+32
+Z80 !s110 1732742400
+!i10b 1
+Z81 !s108 1732742400.000000
+Z82 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/receiveControl.vhd|
+Z83 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/receiveControl.vhd|
+!i113 1
+R11
+R12
+Areceivercontrolarch
+R1
+R2
+DEx4 work 15 receivercontrol 0 22 AXgEnifDb[@mVlmTY9gki0
+l58
+L12
+V0^X9`;b1jP9ICac7geeRe0
+!s100 7T5<j>>YRaXkd__QU31?32
+R6
+32
+R80
+!i10b 1
+R81
+R82
+R83
+!i113 1
+R11
+R12
+Eshiftreg1bit
+Z84 w1732741993
+R1
+R2
+R3
+Z85 8C:/Users/squid/Downloads/ProjectVhdl/work/shiftReg1Bit.vhd
+Z86 FC:/Users/squid/Downloads/ProjectVhdl/work/shiftReg1Bit.vhd
+l0
+L4
+VJfgd4MJgR:]VbXfmgIBKo1
+!s100 HT<@dcVbOHATz1]]4Ibn@3
+R6
+32
+Z87 !s110 1732742000
+!i10b 1
+Z88 !s108 1732742000.000000
+Z89 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/shiftReg1Bit.vhd|
+Z90 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/shiftReg1Bit.vhd|
+!i113 1
+R11
+R12
+Ashiftreg1bitarch
+R1
+R2
+DEx4 work 12 shiftreg1bit 0 22 Jfgd4MJgR:]VbXfmgIBKo1
+l29
+L12
+VGAjZhMDgHBGHXaMI>:GlH0
+!s100 CcMC4IG=O@g>PU0R?VOC<3
+R6
+32
+R87
+!i10b 1
+R88
+R89
+R90
+!i113 1
+R11
+R12
+Eshiftreg8bit
+Z91 w1732741893
+R1
+R2
+R3
+Z92 8C:/Users/squid/Downloads/ProjectVhdl/work/shiftReg8Bit.vhd
+Z93 FC:/Users/squid/Downloads/ProjectVhdl/work/shiftReg8Bit.vhd
+l0
+L4
+VC0zZaZSKkgQcB3i]?TP[b0
+!s100 M[4TGWPl^<<EA5:f>lZ@S0
+R6
+32
+Z94 !s110 1732741897
+!i10b 1
+Z95 !s108 1732741897.000000
+Z96 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/shiftReg8Bit.vhd|
+Z97 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/shiftReg8Bit.vhd|
+!i113 1
+R11
+R12
+Ashiftreg8bitarch
+R1
+R2
+DEx4 work 12 shiftreg8bit 0 22 C0zZaZSKkgQcB3i]?TP[b0
+l24
+L14
+V6LlHEUFAFOY<[QN?[cVDW3
+!s100 k<_Goz^:b]dinXRNW>2`40
+R6
+32
+R94
+!i10b 1
+R95
+R96
+R97
+!i113 1
+R11
+R12
+Esrlatch
+Z98 w1730327439
+R1
+R2
+R3
+Z99 8C:/Users/squid/Downloads/ProjectVhdl/work/srLatch.vhd
+Z100 FC:/Users/squid/Downloads/ProjectVhdl/work/srLatch.vhd
+l0
+L4
+VG[4BM4GSGO<W4K9fMQa^T2
+!s100 R?[e5f55Hz7^J_Um2gHhK2
+R6
+32
+R61
+!i10b 1
+R62
+Z101 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/srLatch.vhd|
+Z102 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/srLatch.vhd|
+!i113 1
+R11
+R12
+Asrlatcharch
+R1
+R2
+DEx4 work 7 srlatch 0 22 G[4BM4GSGO<W4K9fMQa^T2
+l13
+L11
+VP3zCT1oADBl6Hz6>[Pib72
+!s100 KECoG@^hD[=087JHQRhg_3
+R6
+32
+R61
+!i10b 1
+R62
+R101
+R102
+!i113 1
+R11
+R12
+Etransmittercontrol
+Z103 w1732742052
+R1
+R2
+R3
+Z104 8C:/Users/squid/Downloads/ProjectVhdl/work/transmitterControl.vhd
+Z105 FC:/Users/squid/Downloads/ProjectVhdl/work/transmitterControl.vhd
+l0
+L4
+VEUao8BW6`2j<EDWi2EFaD2
+!s100 jaNfRbnRQGFgZUV9Idh`92
+R6
+32
+Z106 !s110 1732742056
+!i10b 1
+Z107 !s108 1732742056.000000
+Z108 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/squid/Downloads/ProjectVhdl/work/transmitterControl.vhd|
+Z109 !s107 C:/Users/squid/Downloads/ProjectVhdl/work/transmitterControl.vhd|
+!i113 1
+R11
+R12
+Atransmittercontrolarch
+R1
+R2
+DEx4 work 18 transmittercontrol 0 22 EUao8BW6`2j<EDWi2EFaD2
+l35
+L12
+VdczHPJ=aYF5UK8D=gRHAD3
+!s100 Ck_YgMERh7FJCfHXHe]mh2
+R6
+32
+R106
+!i10b 1
+R107
+R108
+R109
+!i113 1
+R11
+R12
