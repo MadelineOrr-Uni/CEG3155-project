@@ -11,7 +11,7 @@ end entity;
 
 architecture receiverControlArch of receiverControl is
 	signal intCounter, intClkDiv: std_logic_vector(7 downto 0);
-	signal intD, intQ, intMuxSel, intFall: std_logic_vector(1 downto 0);
+	signal intD, intQ, intMuxSel: std_logic_vector(1 downto 0);
 	signal intNotReset, intNotClk, intDivReset, intClk, intFallDetectIn, intFallDetect, intParityIn, intParityReset, intParity: std_logic;
 	signal gnd: std_logic_vector(7 downto 0) := "00000000";
 	signal pow: std_logic_vector(7 downto 0) := "11111111";
@@ -82,6 +82,12 @@ begin
 	);
 
 	fallCheck: fallDetect
+	port map (
+		clk => clk,
+		a => intFallDetectIn,
+		reset => reset,
+		q => intFallDetect
+	);
 
 	parity: parityCheck
 	port map (
