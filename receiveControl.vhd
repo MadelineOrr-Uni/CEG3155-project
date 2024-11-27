@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity receiverControl is
 	port (
 		clk, rxd, call, reset: in std_logic;
-		rdrf, oe, fe: out std_logic;
+		clkOut, rdrf, oe, fe: out std_logic;
 		state: out std_logic_vector(1 downto 0) 
 	);
 end entity;
@@ -124,4 +124,5 @@ begin
 	rdrf <= not(intQ(0)) and intQ(1);
 	oe <= not(intQ(0)) and intQ(1) and intFallDetect;
 	fe <= intParity xnor rxd;
+	clkOut <= intClk;
 end architecture;
