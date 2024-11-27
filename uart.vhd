@@ -69,6 +69,15 @@ architecture uartArch of uart is
 			q, qx8: out std_logic
 		);
 	end component;
+
+	component receiverController
+		port (		
+			clk, rxd, call, reset: in std_logic;
+			rdrf, oe, fe: out std_logic;
+			state: out std_logic_vector(1 downto 0) 
+		);
+	end component;
+
 begin
 	writeMux: mux4x8
 	port map (
