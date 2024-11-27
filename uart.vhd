@@ -102,7 +102,7 @@ begin
 		clk => baudClk,
 		a_shift => gnd(0),
 		sel(1) => '0',
-		sel(0) => action(0),
+		sel(0) => action(0) and intScsr(7),
 		a => data,
 		q => intTdr,
 	);
