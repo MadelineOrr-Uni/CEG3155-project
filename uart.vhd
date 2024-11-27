@@ -11,7 +11,8 @@ entity uart is
 end entity;
 
 architecture uartArch of uart is
-	signal intDataOut, intTdr, intScsr, inSccr: std_logic_vector(7 downto 0);
+	signal intDataOut, intTdr, intScsr, intSccr: std_logic_vector(7 downto 0);
+	signal 
 
 	component mux4x8
 		port (
@@ -46,7 +47,7 @@ architecture uartArch of uart is
 		);
 	end component;
 
-	component transmitterController
+	component transmitterControl
 		port (	
 			clk, reset, call: in std_logic;
 			tdre: out std_logic;
@@ -70,19 +71,11 @@ architecture uartArch of uart is
 		);
 	end component;
 
-	component receiverController
-		port (		
-			clk, rxd, call, reset: in std_logic;
-			rdrf, oe, fe: out std_logic;
-			state: out std_logic_vector(1 downto 0) 
-		);
-	end component;
-
 begin
 	writeMux: mux4x8
 	port map (
-		in0 => intTdr,
-		in1 => intScsr,
+		in0 => intRdr,
+		in1 => data,
 		in2 => intSccr,
 		in3 => intSccr,
 		s => addSel(1 downto 0),
