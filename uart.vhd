@@ -12,14 +12,14 @@ entity uart is
 end entity;
 
 architecture uartArch of uart is
-	signal intDataOut: std_logic_vector(7 downto 0);
-	signal action: std_logic_vector(3 downto 0);
+	signal intDataOut, intTdr, intRsr, intRdr, intScsr, intSccr: std_logic_vector(7 downto 0);
+	signal intTransmit, intReceive, intTsr_shift, intRsr_shift: std_logic;
 
 	component mux4x8
 		port (
 			in0, in1, in2, in3: in std_logic_vector(7 downto 0);
 			s: in std_logic_vector(1 downto 0);
-			q: out std_logic
+			q: out std_logic_vector(7 downto 0)
 		);
 	end component;
 
@@ -48,11 +48,19 @@ architecture uartArch of uart is
 		);
 	end component;
 
-	component transmitterController
+	component transmitterControl
 		port (	
 			clk, reset, call: in std_logic;
 			tdre: out std_logic;
 			state: out std_logic_vector(1 downto 0)
+		);
+	end component;
+
+	component receiverControl
+		port (
+			clk, rxd, call, reset: in std_logic;
+			rdrf, oe, fe: out std_logic;
+			state: out std_logic_vector(1 downto 0) 
 		);
 	end component;
 
@@ -64,23 +72,24 @@ architecture uartArch of uart is
 		);
 	end component;
 
-	component receiverController
-		port (		
-			clk, rxd, call, reset: in std_logic;
-			rdrf, oe, fe: out std_logic;
-			state: out std_logic_vector(1 downto 0) 
-		);
-	end component;
-
 begin
+	writeMux: mux4x8
+	port map (
+		in0 => intRdr,
+		in1 => data,
+		in2 => data,
+		in3 => data,
+		s => addSel(1 downto 0),
+		q => intDataOut
+	);
 
 	RDR: shiftReg8Bit
 	port map (
 		clk => clk,
 		a_shift => ,
 		sel => ,
-		a => ,
-		q => ,
+		a => intRsr,
+		q => intRdr,
 		q_shift 
 	);
 
@@ -89,12 +98,11 @@ begin
 		clk => clk,
 		a_shift => ,
 		sel => ,
-		a => ,
-		q => ,
-		q_shift 
+		a => data,
+		q_shift => intTdr_shift
 	);
 
-	RSR: shicftReg8Bit
+	RSR: shiftReg8Bit
 	port map (	
 		clk => clk,
 		a_shift => ,
@@ -109,7 +117,7 @@ begin
 		clk => clk,
 		a_shift => ,
 		sel => ,
-		a => ,
+		a => intTdr,
 		q => ,
 		q_shift 
 	);
@@ -129,7 +137,7 @@ begin
 		clk => clk,
 		rw => addSel(2),
 		en => addSel(1),
-		a => 
+		a => data
 	);
 
 	addrDecoder: addrDecoder
@@ -143,7 +151,7 @@ begin
 	port map (	
 		clk => clk,
 		reset => gReset,
-		call => ,
+		call => intTransmit,
 		tdre => ,
 		state => 
 	);
@@ -161,8 +169,8 @@ begin
 	port map (
 		clk => clk,
 		reset => gReset,
-		call => ,
-		rxd => ,
+		call => intReceive,
+		rxd => rxd,
 		rdrf => ,
 		oe => ,
 		state => 
