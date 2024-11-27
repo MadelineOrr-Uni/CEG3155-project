@@ -6,6 +6,7 @@ entity uart is
 		clk, rxd: in std_logic;
 		addSel: in std_logic_vector(2 downto 0);
 		txd: out std_logic;
+		gReset: in std_logic;
 		data: inout std_logic_vector(7 downto 0)
 	);
 end entity;
@@ -89,33 +90,88 @@ begin
 
 	RDR: shiftReg8Bit
 	port map (
-			
+		clk => clk,
+		a_shift => ,
+		sel => ,
+		a => ,
+		q => ,
+		q_shift 
 	);
 
 	TDR: shiftReg8Bit
 	port map (
-		
+		clk => clk,
+		a_shift => ,
+		sel => ,
+		a => ,
+		q => ,
+		q_shift 
 	);
 
-	RSR: shiftReg8Bit
-	port map (
-		
+	RSR: shicftReg8Bit
+	port map (	
+		clk => clk,
+		a_shift => ,
+		sel => ,
+		a => ,
+		q => ,
+		q_shift 
 	);
 
 	TSR: shiftReg8Bit
 	port map (
-		
+		clk => clk,
+		a_shift => ,
+		sel => ,
+		a => ,
+		q => ,
+		q_shift 
 	);
 
 	SCSR: shiftReg8Bit
 	port map (
-		
+		clk => clk,
+		a_shift => ,
+		sel => ,
+		a => ,
+		q => ,
+		q_shift 
 	);
 
 	SCCR: inoutReg
 	port map (
-		
+		clk => clk,
+		rw => ,
+		en => ,
+		a => 
 	);
 
+	transCtrl: transmitterController
+	port map (	
+		clk => clk,
+		reset => gReset,
+		call => ,
+		tdre => ,
+		state => 
+	);
 
+	baud: baudRateGen
+	port map (
+		clk => clk,
+		reset => gReset,
+		s => ,
+		q => ,
+		qx8 => 
+	);
+
+	rcvrCtrl: receiverController 
+	port map (
+		clk => clk,
+		reset => gReset,
+		call => ,
+		rxd => ,
+		rdrf => ,
+		oe => ,
+		state => 
+	);
 end architecture;
