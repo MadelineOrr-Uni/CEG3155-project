@@ -13,7 +13,8 @@ end entity;
 
 architecture uartArch of uart is
 	signal intDataOut, intTdr, intRsr, intRdr, intScsr, intSccr: std_logic_vector(7 downto 0);
-	signal intTransmit, intReceive, intTsr_shift, intRsr_shift: std_logic;
+	signal intTransmit, intReceive, intTsr_shift, intRsr_shift, baudClkx8, baudClk: std_logic;
+	signal action: std_logic_vector(3 downto 0);
 
 	component mux4x8
 		port (
@@ -36,6 +37,7 @@ architecture uartArch of uart is
 	component inoutReg
 		port (
 			a: inout std_logic_vector(7 downto 0);
+			q: out std_logic_vector(7 downto 0);
 			rw, clk, en: in std_logic
 		);
 	end component;
@@ -96,8 +98,8 @@ begin
 	TDR: shiftReg8Bit
 	port map (
 		clk => clk,
-		a_shift => ,
-		sel => ,
+		sel(1) => '0',
+		sel(0) => action(0),
 		a => data,
 		q_shift => intTdr_shift
 	);
@@ -105,7 +107,7 @@ begin
 	RSR: shiftReg8Bit
 	port map (	
 		clk => clk,
-		a_shift => ,
+		a_shift => rxd,
 		sel => ,
 		a => ,
 		q => ,
@@ -115,11 +117,11 @@ begin
 	TSR: shiftReg8Bit
 	port map (
 		clk => clk,
-		a_shift => ,
+		a_shift => '1',
 		sel => ,
 		a => intTdr,
 		q => ,
-		q_shift 
+		q_shift => txd
 	);
 
 	SCSR: shiftReg8Bit
@@ -137,6 +139,7 @@ begin
 		clk => clk,
 		rw => addSel(2),
 		en => addSel(1),
+		q => intSccr,
 		a => data
 	);
 
@@ -144,7 +147,7 @@ begin
 	port map (
 		ADDR => addSel(1 downto 0),
 		RW => addSel(2),
-		action => 
+		action => action
 	);
 
 	transCtrl: transmitterController
@@ -152,27 +155,28 @@ begin
 		clk => clk,
 		reset => gReset,
 		call => intTransmit,
-		tdre => ,
+		tdre => intScsr(7),
 		state => 
 	);
 
-	baud: baudRateGen
+	baudRate: baudRateGen
 	port map (
 		clk => clk,
 		reset => gReset,
-		s => ,
-		q => ,
-		qx8 => 
+		s => intSccr(2 downto 0),
+		q => baudClk,
+		qx8 => baudClkx8
 	);
 
 	rcvrCtrl: receiverController 
 	port map (
-		clk => clk,
+		clk => baudClkx8,
 		reset => gReset,
 		call => intReceive,
 		rxd => rxd,
-		rdrf => ,
-		oe => ,
+		rdrf => intScsr(6),
+		oe => intScsr(1),
+		fe => intScsr(0),
 		state => 
 	);
 
