@@ -11,13 +11,13 @@ entity uart is
 end entity;
 
 architecture uartArch of uart is
-	signal intDataOut: std_logic_vector(7 downto 0);
+	signal intDataOut, intTdr, intScsr, inSccr: std_logic_vector(7 downto 0);
 
 	component mux4x8
 		port (
 			in0, in1, in2, in3: in std_logic_vector(7 downto 0);
 			s: in std_logic_vector(1 downto 0);
-			q: out std_logic
+			q: out std_logic_vector(7 downto 0)
 		);
 	end component;
 
@@ -46,6 +46,14 @@ architecture uartArch of uart is
 		);
 	end component;
 begin
+	writeMux: mux4x8
+	port map (
+		in0 => intTdr,
+		in1 => intScsr,
+		in2 => intSccr,
+		in3 => intSccr,
+		q => dataOut
+	)
 
 	data <= data when addSel(2) = '0' else
 		intDataOut;
