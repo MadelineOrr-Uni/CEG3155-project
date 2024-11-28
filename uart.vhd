@@ -99,7 +99,7 @@ begin
 	port map (
 		clk => rcvrCtrlClkOut,
 		a_shift => gnd(0),
-		sel(0) => ,
+		sel(0) => rcvrRead and not(rcvrState(0)),
 		a => intRsr,
 		q => intRdr,
 	);
@@ -119,7 +119,7 @@ begin
 		clk => baudClkx8,
 		a_shift => rxd,
 		sel(0) => '0'
-		sel(1) => rcvrRead and not(rcvrState(0)),
+		sel(1) => rcvrState(0) and rcvrState(1),
 		a => gnd,
 		q => intRsr,
 	);
