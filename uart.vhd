@@ -7,6 +7,7 @@ entity uart is
 		addSel: in std_logic_vector(2 downto 0);
 		txd: out std_logic;
 		gReset: in std_logic;
+		bdClk: out std_logic; -- TODO: Divide this later for lab 3
 		data: inout std_logic_vector(7 downto 0)
 	);
 end entity;
