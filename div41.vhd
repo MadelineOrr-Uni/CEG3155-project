@@ -9,7 +9,7 @@ entity div41 is
 end entity;
 
 architecture div41Arch of div41 is
-	signal intReset, intCount41: std_logic;
+	signal intReset, intCount40: std_logic;
 	signal intQ: std_logic_vector(7 downto 0);
 	signal gnd: std_logic_vector(7 downto 0) := "00000000";
 
@@ -29,7 +29,7 @@ begin
 		q => intQ
 	);
 
-	intReset <= not(reset) and intCount41;
-	intCount41 <= intQ(0) and intQ(3) and intQ(5);
-	q <= intCount41;
+	intReset <= not(reset) and intCount40;
+	intCount40 <= intQ(3) nand intQ(5);
+	q <= intQ(4);
 end architecture;

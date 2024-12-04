@@ -26,7 +26,7 @@ begin
 	port map (
 		clk => clk,
 		a_i => a(0),
-		a_left => a_shift,
+		a_left => intQ(1),
 		sel => sel,
 		q => intQ(0)
 	);
@@ -35,7 +35,7 @@ begin
 	port map (
 		clk => clk,
 		a_i => a(1),
-		a_left => a(0),
+		a_left => intQ(2),
 		sel => sel,
 		q => intQ(1)
 	);
@@ -44,7 +44,7 @@ begin
 	port map (
 		clk => clk,
 		a_i => a(2),
-		a_left => a(1),
+		a_left => intQ(3),
 		sel => sel,
 		q => intQ(2)
 	);
@@ -53,7 +53,7 @@ begin
 	port map (
 		clk => clk,
 		a_i => a(3),
-		a_left => a(2),
+		a_left => intQ(4),
 		sel => sel,
 		q => intQ(3)
 	);
@@ -62,7 +62,7 @@ begin
 	port map (
 		clk => clk,
 		a_i => a(4),
-		a_left => a(3),
+		a_left => intQ(5),
 		sel => sel,
 		q => intQ(4)
 	);
@@ -71,7 +71,7 @@ begin
 	port map (
 		clk => clk,
 		a_i => a(5),
-		a_left => a(4),
+		a_left => intQ(6),
 		sel => sel,
 		q => intQ(5)
 	);
@@ -80,7 +80,7 @@ begin
 	port map (
 		clk => clk,
 		a_i => a(6),
-		a_left => a(5),
+		a_left => intQ(7),
 		sel => sel,
 		q => intQ(6)
 	);
@@ -89,11 +89,11 @@ begin
 	port map (
 		clk => clk,
 		a_i => a(7),
-		a_left => a(6),
+		a_left => a_shift,
 		sel => sel,
 		q => intQ(7)
 	);
 
-	q_shift <= intQ(7);
+	q_shift <= intQ(0);
 	q <= intQ;
 end architecture;
