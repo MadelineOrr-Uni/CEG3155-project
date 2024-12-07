@@ -9,7 +9,7 @@ entity counter1Bit is
 end entity;
 
 architecture counter1BitArch of counter1Bit is
-	signal intD: std_logic;
+	signal intD, intQ, intInc: std_logic;
 
 	component mux2x1
 		port (
@@ -28,7 +28,7 @@ begin
 	mux: mux2x1
 	port map (
 		in0 => a,
-		in1 => inc,
+		in1 => intInc,
 		s => s,
 		q => intD
 	);
@@ -37,6 +37,9 @@ begin
 	port map (
 		d => intD,
 		clk => clk,
-		q => q
+		q => intQ
 	);
+
+	q <= intQ;
+	intInc <= intQ xor inc;
 end architecture;
